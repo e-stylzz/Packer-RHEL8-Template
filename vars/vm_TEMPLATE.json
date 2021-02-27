@@ -1,0 +1,15 @@
+{
+	"vm_iso_path": "",
+	"vm_iso_file": "",
+	"vm_guest_username": "",
+	"vm_guest_password": "",
+	"vm_guest_type": "",
+	"vm_cpu_count": "",
+	"vm_mem_count": "",
+	"vm_disk_size": "",
+	"vm_disk_thin": "",
+	"vm_disk_controller": "",
+	"vm_network_card": "",
+	"vm_config_file": "",
+	"vm_script_files": ""
+}

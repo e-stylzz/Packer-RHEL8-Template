@@ -1,0 +1,55 @@
+{
+	"builders": [
+		{
+			"type": "vsphere-iso",
+			"name": "rhel8",
+
+			"vcenter_server": "{{user `vcenter_server`}}",
+			"username": "{{user `vcenter_username`}}",
+			"password": "{{user `vcenter_password`}}",
+			"insecure_connection": true,
+
+			"datacenter": "{{user `vcenter_datacenter`}}",
+			"cluster": "{{user `vcenter_cluster`}}",
+			"host": "{{user `vcenter_host`}}",
+			"folder": "{{user `vcenter_folder`}}",
+			"datastore": "{{user `vcenter_datastore`}}",
+			"convert_to_template": true,
+
+			"vm_name": "RHEL-TPL",
+			"guest_os_type": "{{user `vm_guest_type`}}",
+			"CPUs": "{{user `vm_cpu_count`}}",
+			"RAM": "{{user `vm_mem_count`}}",
+			"disk_controller_type": "{{user `vm_disk_controller`}}",
+			"storage": [
+				{
+					"disk_size": "{{user `vm_disk_size`}}",
+					"disk_thin_provisioned": "{{user `vm_disk_thin`}}"
+				}
+			],
+			"network_adapters": [
+				{
+					"network": "{{user `vcenter_network`}}",
+					"network_card": "{{user `vm_network_card`}}"
+				}
+			],
+			"notes": "OS: RHEL 8 Linux",
+
+			"communicator": "ssh",
+			"ssh_username": "{{user `vm_guest_username`}}",
+			"ssh_password": "{{user `vm_guest_password`}}",
+
+			"http_directory": "config",
+			"boot_command": ["<up><wait><tab><wait> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/kickstart.cfg<enter><wait>"],
+			"iso_paths": ["{{user `vm_iso_path`}}/{{user `vm_iso_file`}}"]
+		}
+	],
+
+	"provisioners": [
+		{
+			"type": "shell",
+			"execute_command": "echo '{{user `vm_guest_password`}}' | sudo -S -E {{ .Path }}",
+			"scripts": "{{user `vm_script_files`}}"
+		}
+	]
+}
