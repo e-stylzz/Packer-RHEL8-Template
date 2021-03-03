@@ -15,9 +15,6 @@ sudo truncate -s 0 /etc/machine-id
 sudo rm -f /var/lib/dbus/machine-id
 sudo ln -s /etc/machine-id /var/lib/dbus/machine-id
 
-# Clean cloud-init
-sudo cloud-init clean --logs --seed
-
 # Remove current SSHd keys
 rm -f /etc/ssh/ssh_host_*
 
@@ -34,3 +31,10 @@ fi
 
 # Cleanup shell history
 cat /dev/null > ~/.bash_history && history -cw
+
+
+subscription-manager remove --all
+subscription-manager clean
+
+# Command below errors as: command not found.
+#sys-unconfig

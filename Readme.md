@@ -12,3 +12,7 @@ You'll need to make changes to files before using.
 ## Execution
 
 packer build -var-file=vars/vmware.json -var-file=vars/vm.json vm.json
+
+### Kickstart Generator
+
+https://access.redhat.com/labs/kickstartconfig/
