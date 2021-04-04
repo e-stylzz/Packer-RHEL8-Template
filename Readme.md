@@ -6,12 +6,12 @@ Work in progress.
 
 You'll need to make changes to files before using.
 
-1. config/kickstart.cfg -> ###PASSWORD###
+1. config/ks.cfg -> ###PASSWORD###
 2. rename vars/\*\_TEMPLATE.json (remove \_TEMPLATE) and enter values.
 
 ## Execution
 
-packer build -var-file=vars/vmware.json -var-file=vars/vm.json vm.json
+packer build -var-file=vars/vmware.json -var-file=vars/vm.json machine.json
 
 ### Kickstart Generator
 
