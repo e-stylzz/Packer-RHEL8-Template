@@ -1,0 +1,1 @@
+subscription-manager register --auto-attach --username=eric.barb --password=PASSWORD
