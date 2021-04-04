@@ -33,7 +33,7 @@
 					"network_card": "{{user `vm_network_card`}}"
 				}
 			],
-			"notes": "OS: RHEL 8 Linux",
+			"notes": "OS: RHEL 8 Linux \n Date Created: {{isotime \"2006-01-02\"}}\n Testing a new line",
 
 			"communicator": "ssh",
 			"ssh_username": "{{user `vm_guest_username`}}",
